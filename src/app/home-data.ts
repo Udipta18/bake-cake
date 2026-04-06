@@ -62,10 +62,40 @@ export const galleryItems = [
   },
 ] as const;
 
-export const easterQuote = [
-  "May the miracle of Easter fill your heart with gratitude,",
-  "your soul with peace, and your life with the promise",
-  "of eternal life through Jesus Christ.",
+export const seasonalSpotlight = [
+  {
+    eyebrow: "First Order Offer",
+    badge: "10% Off",
+    title: "A little extra sweetness for your first order.",
+    description:
+      "Start with our most-loved bakes and enjoy 10% off your first box, cake, or dessert table booking.",
+    primaryCta: "Claim First Order Offer",
+    secondaryCta: "Shop Best Sellers",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBM6U5eib9AiGjIN9XSSzhAnhUtctM8rmP19B0rWqvY4JcBrk4G9iB2drgh7F3gS8q_tPHTr1QJoEZWRrghQxt0m3vLTw87DTAjjs977xsJKVkayIcKZev_NdwQUmfpzjJNGGMjTPlvBMKpdq8PS_klQsXfRfSJ27z7B4O8RCGjhDz0EZ2b-olABTsD5RNmCeDMYDpj4or98bs1kqkd_6ZlE8T0yl0cy1ktV75Bo8rShTVSFB3xua2sTSXUd-WoQi2chpXSqoVvBd8",
+  },
+  {
+    eyebrow: "Festive Offer",
+    badge: "Pre-Order Now",
+    title: "Hand-finished truffle boxes wrapped for elegant gifting.",
+    description:
+      "A polished gifting edit for festivals, hostess moments, and sweet boxes that feel thoughtful from the first glance.",
+    primaryCta: "Pre-Order Gifting",
+    secondaryCta: "View Festive Boxes",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDPGgrgli0mi_a7iuZr9PltF3QW8GIDjTTzRSPkjDCH_wxEk4nsi9YjWsTTjEUB3zYh0biUXDSb2Ej1KIa8hqGe4PWJMtJod7XN-9sraDUqMItPXnHnZzQ09zKBh-ZSZv1df8tJ5lzJ6jxVc2G-AHH7-XY-FOapGxwN7yu3WeU4pQOLv6rA9uLE8lowEx3mw2jrj0DNmi_Eq-V0HF-c4KHI_XBIQvgHO3i3qGzrIH489lfzjF5YFA0ThgmSTd0rPzAyHM5YejL9a7o",
+  },
+  {
+    eyebrow: "Special Bake",
+    badge: "Weekend Batch",
+    title: "Brown-butter sea salt cookies, baked in limited weekend batches.",
+    description:
+      "A warm, small-batch release designed to feel a little rarer and a lot more memorable.",
+    primaryCta: "Reserve This Bake",
+    secondaryCta: "See This Weekend's Menu",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCslIFtGQde5lmR8H4sMW2exDEHvrDwcQ2wnZtRd6Y419qOTilLP4xnaUUZXjTjtIWYeHFDRKmUOz051kDdBgctDGJ8QQiRi7RpT8aOZRkO6c61qJ_w6l4WD2fzFLcQTa_tNzf35R8kGk8S7mlJi7VC-il6RIBlMEs5zpzERRNK-YcqnmZoKFo5lub72YQTSuUZqIr9jPW_HfYmYedQBpg4XDxJUgtvlWJrAGUW7pbOvjC6DbJUinlgXWi0SKrSGkUByPXEn2nIfao",
+  },
 ] as const;
 
 export const bestSellerItems = [

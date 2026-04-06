@@ -149,6 +149,51 @@ html {
     min-height: 100vh;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     transition: filter 0.4s ease;
+    overflow: hidden;
+  }
+  .framed-container::before {
+    content: "";
+    position: absolute;
+    inset: -35% -25%;
+    background: linear-gradient(
+      115deg,
+      transparent 40%,
+      rgba(255, 248, 220, 0.24) 50%,
+      transparent 60%
+    );
+    transform: translateX(-60%) rotate(8deg);
+    animation: ambientShimmer 18s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: soft-light;
+  }
+  .framed-container > * {
+    position: relative;
+    z-index: 1;
+  }
+  .shimmer-surface {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .shimmer-surface::after {
+    content: "";
+    position: absolute;
+    inset: -140% -45%;
+    background: linear-gradient(
+      110deg,
+      transparent 44%,
+      rgba(255, 241, 198, 0.3) 50%,
+      transparent 56%
+    );
+    transform: translateX(-75%) rotate(7deg);
+    animation: surfaceShimmer 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .shimmer-surface > * {
+    position: relative;
+    z-index: 2;
   }
   #nav-drawer {
     transform: translateX(-100%);
@@ -351,6 +396,37 @@ html {
     right: -5px;
     border-left: 0;
   }
+  /* Bento gallery cards */
+  .bento-card {
+    box-shadow: 0 2px 16px rgba(74, 44, 93, 0.08);
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+  }
+  .bento-card:hover {
+    box-shadow:
+      0 8px 32px rgba(74, 44, 93, 0.15),
+      0 0 0 1px rgba(204, 168, 48, 0.2),
+      inset 0 0 0 1px rgba(204, 168, 48, 0.08);
+    transform: translateY(-4px);
+  }
+  /* Infinite marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 30s linear infinite;
+  }
+  .marquee-content {
+    flex-shrink: 0;
+  }
+  /* Lookbook card */
+  .lookbook-card {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.6s ease, transform 0.6s ease, border-color 0.6s ease;
+  }
+  .lookbook-card:hover {
+    box-shadow:
+      0 16px 48px rgba(0, 0, 0, 0.35),
+      0 0 0 1px rgba(204, 168, 48, 0.12);
+  }
 }
 
 @keyframes fadeIn {
@@ -360,5 +436,48 @@ html {
   } to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes ambientShimmer {
+  0% {
+    transform: translateX(-65%) rotate(8deg);
+  }
+  100% {
+    transform: translateX(65%) rotate(8deg);
+  }
+}
+
+@keyframes surfaceShimmer {
+  0% {
+    transform: translateX(-75%) rotate(7deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.5;
+  }
+  45% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateX(75%) rotate(7deg);
+    opacity: 0;
+  }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .framed-container::before,
+  .shimmer-surface::after {
+    animation: none;
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { BestSellers } from "./BestSellers";
 import { EasterQuote } from "./EasterQuote";
 import { HeroCarousel } from "./HeroCarousel";
@@ -14,7 +14,6 @@ import { WhatsAppButton } from "./WhatsAppButton";
 export function HomePage() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const quoteRef = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +39,7 @@ export function HomePage() {
             onPrevious={() => setCurrentSlide((prev) => (prev - 1 + 2) % 2)}
           />
           <ProductGallery />
-          <EasterQuote quoteRef={quoteRef} />
+          <EasterQuote />
           <BestSellers />
           <PromiseGrid />
           <SweetStories />

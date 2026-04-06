@@ -13,7 +13,7 @@ export function BestSellers() {
         </div>
         <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-12 md:overflow-visible md:px-0 md:pb-0">
           {bestSellerItems.map((item) => (
-            <div className="group min-w-[82%] snap-start flex flex-col rounded-2xl border border-primary/5 bg-white/45 p-4 transition-all duration-500 hover:shadow-xl sm:min-w-[62%] md:min-w-0 md:rounded-lg md:p-6" key={item.title}>
+            <div className="group shimmer-surface min-w-[82%] snap-start flex flex-col rounded-2xl border border-primary/5 bg-white/45 p-4 transition-all duration-500 hover:shadow-xl sm:min-w-[62%] md:min-w-0 md:rounded-lg md:p-6" key={item.title}>
               <div className="relative mb-5 aspect-square overflow-hidden rounded-xl md:mb-6 md:rounded-lg">
                 <ResponsiveImage alt={item.title} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 768px) 33vw, 100vw" src={item.image} />
               </div>

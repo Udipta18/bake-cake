@@ -23,7 +23,7 @@ export function SweetStories() {
         <h2 className="mb-10 text-center font-headline text-2xl font-bold text-primary md:mb-14 md:text-4xl">
           Sweet Stories from our Gallery
         </h2>
-        <div className="mx-auto max-w-[78rem] rounded-[1.5rem] bg-white/80 p-3 shadow-[0_4px_14px_rgba(87,59,38,0.08)] md:rounded-[2rem] md:p-6">
+        <div className="shimmer-surface mx-auto max-w-[78rem] rounded-[1.5rem] bg-white/80 p-3 shadow-[0_4px_14px_rgba(87,59,38,0.08)] md:rounded-[2rem] md:p-6">
           <div className="relative rounded-[1.2rem] bg-white/92 px-5 py-7 md:rounded-[1.7rem] md:px-14 md:py-14">
             <div className="pointer-events-none absolute inset-0 rounded-[1.2rem] border border-[#c79a35] md:rounded-[1.7rem]" />
             <div className="pointer-events-none absolute inset-[10px] rounded-[0.9rem] border border-[#e2bf73] md:inset-[14px] md:rounded-[1.3rem]" />
