@@ -15,6 +15,7 @@ type CollectionsPageProps = {
 };
 
 const availableCategories = [...new Set(collectionsData.map((item) => item.category))];
+const filterCategories = ["Brownies", "Chocolates", "Cookies"] as const;
 
 function normalizeCategory(value?: string | string[]) {
   if (Array.isArray(value)) {
@@ -39,6 +40,9 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
   const visibleCollections = selectedCategory
     ? collectionsData.filter((item) => item.category === selectedCategory)
     : collectionsData;
+  const visibleFilters = filterCategories.filter((category) =>
+    availableCategories.includes(category),
+  );
 
   return (
     <div className="relative min-h-screen bg-[#f1efd9] font-body text-on-background">
@@ -87,6 +91,31 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
 
       {/* Product grid */}
       <main className="mx-auto max-w-7xl px-4 pb-16 md:px-8 md:pb-24">
+        <div className="mb-8 flex flex-wrap items-center gap-3 md:mb-10">
+          <Link
+            className={`rounded-full border px-4 py-2 text-[0.63rem] font-label font-bold uppercase tracking-[0.16em] transition-colors md:px-5 md:text-[0.7rem] ${
+              !selectedCategory
+                ? "border-primary bg-primary text-on-primary"
+                : "border-primary/20 bg-white/70 text-primary hover:bg-white"
+            }`}
+            href="/collections"
+          >
+            All
+          </Link>
+          {visibleFilters.map((category) => (
+            <Link
+              className={`rounded-full border px-4 py-2 text-[0.63rem] font-label font-bold uppercase tracking-[0.16em] transition-colors md:px-5 md:text-[0.7rem] ${
+                selectedCategory === category
+                  ? "border-primary bg-primary text-on-primary"
+                  : "border-primary/20 bg-white/70 text-primary hover:bg-white"
+              }`}
+              href={`/collections?category=${encodeURIComponent(category)}`}
+              key={category}
+            >
+              {category}
+            </Link>
+          ))}
+        </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 md:gap-10">
           {visibleCollections.map((item) => (
             <Link
