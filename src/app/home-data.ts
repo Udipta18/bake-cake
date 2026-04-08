@@ -1,19 +1,39 @@
+/** Must match the `id` on the home section (e.g. EasterQuote). */
+export const OFFERS_SECTION_ID = "offers" as const;
+
+/** Home-only scroll target for the logo (see HomePage root `id`). */
+export const SITE_TOP_ID = "site-top" as const;
+
+/**
+ * Same-page: #anchor. Other routes: /#anchor so the browser scrolls after navigation.
+ * No JS scroll — avoids smooth-scroll fights and repeat “jumping”.
+ */
+export function hrefForAnchor(anchorId: string, pathname: string) {
+  return pathname === "/" ? `#${anchorId}` : `/#${anchorId}`;
+}
+
+export function hrefForBrand(pathname: string) {
+  return pathname === "/" ? `#${SITE_TOP_ID}` : "/";
+}
+
 export const navigationItems = [
   {
     label: "About Us",
-    items: ["Our Story", "Our Team", "Sustainability", "Careers"],
+    href: "/about",
+    items: [],
   },
   {
     label: "Products",
     items: ["Signature Cakes", "Artisanal Pastries", "Chocolates & Truffles", "Seasonal Collections"],
   },
   {
-    label: "Find Us",
-    items: ["Our Boutiques", "Store Locator", "Contact Details"],
+    label: "Offers",
+    anchorId: OFFERS_SECTION_ID,
+    items: [],
   },
   {
     label: "Contact Us",
-    items: ["General Inquiries", "Custom Orders", "Feedback"],
+    items: [],
   },
 ] as const;
 
@@ -41,6 +61,7 @@ export const heroSlides = [
 export const galleryItems = [
   {
     title: "Decadent Brownies",
+    category: "Brownies",
     description: "Rich, fudgy layers of 70% dark cacao with a signature crackle top.",
     price: "From $24.00",
     image:
@@ -48,6 +69,7 @@ export const galleryItems = [
   },
   {
     title: "Artisanal Chocolates",
+    category: "Chocolates",
     description: "Hand-painted bonbons infused with lavender honey and organic berries.",
     price: "From $32.00",
     image:
@@ -55,6 +77,7 @@ export const galleryItems = [
   },
   {
     title: "Warm & Soft Cookies",
+    category: "Cookies",
     description: "Brown-butter infused dough baked to golden perfection with sea salt.",
     price: "From $18.00",
     image:

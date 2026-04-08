@@ -4,10 +4,6 @@ import { ResponsiveImage } from "./ResponsiveImage";
 
 const badges = ["Signature", "Handcrafted", "Seasonal"] as const;
 
-function toSlug(title: string) {
-  return title.toLowerCase().replace(/&/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
-}
-
 export function ProductGallery() {
   const [featured, ...rest] = galleryItems;
 
@@ -55,7 +51,7 @@ export function ProductGallery() {
           {/* ── Featured (large) card ── */}
           <Link
             className="bento-card group relative col-span-1 overflow-hidden rounded-[1.25rem] md:col-span-7 md:row-span-2"
-            href={`/collections/${toSlug(featured.title)}`}
+            href={`/collections?category=${encodeURIComponent(featured.category)}`}
           >
             <div className="relative aspect-[4/5] md:aspect-auto md:h-full md:min-h-[540px]">
               <ResponsiveImage
@@ -112,7 +108,7 @@ export function ProductGallery() {
           {rest.map((item, i) => (
             <Link
               className="bento-card group relative col-span-1 overflow-hidden rounded-[1.25rem] md:col-span-5"
-              href={`/collections/${toSlug(item.title)}`}
+              href={`/collections?category=${encodeURIComponent(item.category)}`}
               key={item.title}
             >
               <div className="relative aspect-[16/10] md:aspect-auto md:h-full md:min-h-[258px]">

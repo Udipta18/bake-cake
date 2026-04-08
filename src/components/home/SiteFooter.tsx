@@ -2,7 +2,7 @@ import { EastIcon } from "./icons";
 
 export function SiteFooter() {
   return (
-    <footer className="shimmer-surface w-full rounded-t-[2rem] bg-[#f6f5df]/95 backdrop-blur-md md:rounded-t-[3rem]">
+    <footer className="relative mt-0 w-full rounded-t-[2rem] bg-[#f6f5df] backdrop-blur-md md:rounded-t-[3rem]">
       <div className="mx-auto max-w-7xl px-4 md:px-10">
         <div className="grid w-full grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:grid-cols-4 md:gap-12 md:py-16">
           <div className="space-y-4 md:space-y-6">

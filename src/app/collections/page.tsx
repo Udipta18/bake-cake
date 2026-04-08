@@ -8,7 +8,38 @@ export const metadata = {
     "Explore our artisanal collections — hand-crafted brownies, chocolates, cookies and more.",
 };
 
-export default function CollectionsPage() {
+type CollectionsPageProps = {
+  searchParams: Promise<{
+    category?: string | string[];
+  }>;
+};
+
+const availableCategories = [...new Set(collectionsData.map((item) => item.category))];
+
+function normalizeCategory(value?: string | string[]) {
+  if (Array.isArray(value)) {
+    return value[0];
+  }
+  return value;
+}
+
+function resolveCategory(value?: string) {
+  if (!value) {
+    return undefined;
+  }
+
+  return availableCategories.find(
+    (category) => category.toLowerCase() === value.toLowerCase(),
+  );
+}
+
+export default async function CollectionsPage({ searchParams }: CollectionsPageProps) {
+  const query = await searchParams;
+  const selectedCategory = resolveCategory(normalizeCategory(query.category));
+  const visibleCollections = selectedCategory
+    ? collectionsData.filter((item) => item.category === selectedCategory)
+    : collectionsData;
+
   return (
     <div className="relative min-h-screen bg-[#f1efd9] font-body text-on-background">
       {/* Navigation bar */}
@@ -36,20 +67,28 @@ export default function CollectionsPage() {
             Our Patisserie
           </span>
           <h1 className="sparkle-text mb-4 font-headline text-[2.25rem] font-bold leading-[1.05] text-primary md:mb-6 md:text-6xl">
-            Artisanal Collections
+            {selectedCategory ? `${selectedCategory} Collection` : "Artisanal Collections"}
           </h1>
           <p className="max-w-2xl text-base font-medium text-secondary md:text-xl">
-            Curated boxes of whimsy and flavour, hand-crafted daily in our
-            boutique kitchen. Each piece is a love letter to the art of
-            patisserie.
+            {selectedCategory
+              ? `Explore our handcrafted ${selectedCategory.toLowerCase()} selection, made fresh in our boutique kitchen.`
+              : "Curated boxes of whimsy and flavour, hand-crafted daily in our boutique kitchen. Each piece is a love letter to the art of patisserie."}
           </p>
+          {selectedCategory ? (
+            <Link
+              className="mt-5 inline-flex text-[0.7rem] font-label font-bold uppercase tracking-widest text-primary transition-colors hover:text-primary-container md:text-sm"
+              href="/collections"
+            >
+              ← View all collections
+            </Link>
+          ) : null}
         </div>
       </header>
 
       {/* Product grid */}
       <main className="mx-auto max-w-7xl px-4 pb-16 md:px-8 md:pb-24">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 md:gap-10">
-          {collectionsData.map((item) => (
+          {visibleCollections.map((item) => (
             <Link
               className="group flex flex-col overflow-hidden rounded-2xl border border-primary/5 bg-white/45 shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
               href={`/collections/${item.slug}`}

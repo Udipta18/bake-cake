@@ -1,6 +1,6 @@
 "use client";
 
-import { seasonalSpotlight } from "@/app/home-data";
+import { OFFERS_SECTION_ID, seasonalSpotlight } from "@/app/home-data";
 import { ResponsiveImage } from "./ResponsiveImage";
 
 /* Marquee text that scrolls infinitely */
@@ -28,7 +28,9 @@ const cardRotations = ["md:-rotate-1", "md:rotate-1", "md:-rotate-[0.5deg]"] as 
 
 export function EasterQuote() {
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section
+      className="relative overflow-clip bg-background"
+    >
       {/* ── Animated Marquee Banner ── */}
       <div className="relative border-y border-primary/15 bg-primary/10 py-3 md:py-3.5">
         <div className="marquee-track flex whitespace-nowrap">
@@ -53,7 +55,10 @@ export function EasterQuote() {
       </div>
 
       {/* ── Main Content ── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
+      <div 
+        className="relative z-10 mx-auto max-w-7xl scroll-mt-16 px-4 py-14 md:scroll-mt-20 md:px-8 md:py-20"
+        id={OFFERS_SECTION_ID}
+      >
         {/* Top: Large editorial headline */}
         <div className="mb-12 flex flex-col items-center text-center md:mb-20">
           <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white/50 px-4 py-1.5 text-[0.55rem] font-label font-bold uppercase tracking-[0.35em] text-tertiary backdrop-blur-sm md:text-[0.6rem]">

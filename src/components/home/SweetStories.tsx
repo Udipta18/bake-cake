@@ -18,8 +18,8 @@ export function SweetStories() {
   }, []);
 
   return (
-    <section className="bg-[#fcf7e6]">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-12 md:py-24">
+    <section className="bg-transparent">
+      <div className="mx-auto max-w-7xl px-4 pt-12 pb-16 md:px-12 md:pt-24 md:pb-28">
         <h2 className="mb-10 text-center font-headline text-2xl font-bold text-primary md:mb-14 md:text-4xl">
           Sweet Stories from our Gallery
         </h2>
