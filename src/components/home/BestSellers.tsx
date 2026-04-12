@@ -1,4 +1,5 @@
 import { bestSellerItems } from "@/app/home-data";
+import { getOrderWhatsAppLink } from "@/lib/whatsapp";
 import { ResponsiveImage } from "./ResponsiveImage";
 
 export function BestSellers() {
@@ -19,9 +20,14 @@ export function BestSellers() {
               </div>
               <h3 className="mb-2 text-center font-headline text-[1.3rem] font-bold text-primary md:text-2xl">{item.title}</h3>
               <p className="mb-5 text-center font-headline text-lg font-bold text-primary md:mb-6 md:text-xl">{item.price}</p>
-              <button className="mt-auto w-full rounded-xl bg-primary py-3 text-[0.66rem] font-label font-bold uppercase tracking-[0.12em] text-on-primary transition-colors hover:bg-primary-container active:scale-95 md:text-[0.7rem] md:tracking-widest">
+              <a
+                className="mt-auto block w-full rounded-xl bg-primary py-3 text-center text-[0.66rem] font-label font-bold uppercase tracking-[0.12em] text-on-primary transition-colors hover:bg-primary-container active:scale-95 md:text-[0.7rem] md:tracking-widest"
+                href={getOrderWhatsAppLink(`Hi Lilac & Honey, I'd like to order ${item.title}.`)}
+                rel="noreferrer"
+                target="_blank"
+              >
                 Add to Cart
-              </button>
+              </a>
             </div>
           ))}
         </div>

@@ -1,8 +1,7 @@
+import { getOrderWhatsAppLink } from "@/lib/whatsapp";
+
 export function WhatsAppButton() {
-  const prefilledText = encodeURIComponent(
-    "Hi Lilac & Honey, I would like to place an order. Could you please share the available options?",
-  );
-  const whatsappLink = `https://wa.me/917299505240?text=${prefilledText}`;
+  const whatsappLink = getOrderWhatsAppLink();
 
   return (
     <div className="fixed right-4 bottom-4 z-[60] md:right-12 md:bottom-8">

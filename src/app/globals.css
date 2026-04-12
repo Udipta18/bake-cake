@@ -60,7 +60,7 @@ body {
   padding: 0;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -572,10 +572,21 @@ html {
   }
 }
 
+@keyframes testimonialSlide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
 
   .framed-container::before,
-  .shimmer-surface::after {
+  .shimmer-surface::after,
+  [style*="testimonialSlide"] {
     animation: none;
   }
 }

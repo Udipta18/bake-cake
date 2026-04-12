@@ -6,6 +6,7 @@ import { galleryItems } from "@/app/home-data";
 import { Navigation } from "@/components/home/Navigation";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { WhatsAppButton } from "@/components/home/WhatsAppButton";
+import { getOrderWhatsAppLink } from "@/lib/whatsapp";
 
 const promisePoints = [
   "Freshly prepared in small batches.",
@@ -106,7 +107,7 @@ export function AboutPage() {
               </Link>
               <a
                 className="rounded-full border border-primary/20 bg-white/60 px-8 py-3.5 text-xs font-label font-bold uppercase tracking-[0.2em] text-primary transition-all hover:-translate-y-1 hover:border-primary/40 hover:bg-white/90"
-                href="https://wa.me/917299505240?text=Hi%20Lilac%20%26%20Honey%2C%20I%20would%20like%20to%20place%20an%20order."
+                href={getOrderWhatsAppLink("Hi Lilac & Honey, I would like to place a custom order.")}
                 rel="noreferrer"
                 target="_blank"
               >

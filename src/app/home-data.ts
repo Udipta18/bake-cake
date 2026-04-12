@@ -173,6 +173,34 @@ export const promiseItems = [
   },
 ] as const;
 
+export const faqItems = [
+  {
+    question: "How far in advance should I place my order?",
+    answer:
+      "For celebration cakes, we recommend ordering 48 hours in advance. For custom themes and large party orders, 4-5 days helps us prepare every detail with care.",
+  },
+  {
+    question: "Do you offer eggless or dietary-friendly options?",
+    answer:
+      "Yes. We offer eggless selections and can guide you through options for nut-sensitive or low-sugar preferences. Share your requirement while placing the order.",
+  },
+  {
+    question: "Can I customize flavors, design, and message?",
+    answer:
+      "Absolutely. You can personalize flavor combinations, frosting style, and message text. Our team will confirm what is possible based on your delivery date.",
+  },
+  {
+    question: "What are your delivery timings?",
+    answer:
+      "Delivery slots run across the day with priority windows for celebrations. We share the exact slot after order confirmation and keep you updated before dispatch.",
+  },
+  {
+    question: "How should I store cakes and desserts after delivery?",
+    answer:
+      "Keep cakes refrigerated and bring them to room temperature for 20-30 minutes before serving. Brownies and cookies are best stored in airtight containers.",
+  },
+] as const;
+
 export const testimonials = [
   {
     quote:

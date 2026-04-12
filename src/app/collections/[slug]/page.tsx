@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { collectionsData } from "@/app/collections-data";
+import { getOrderWhatsAppLink } from "@/lib/whatsapp";
 
 export function generateStaticParams() {
   return collectionsData.map((item) => ({ slug: item.slug }));
@@ -119,9 +120,14 @@ export default async function CollectionDetailPage({
               </div>
 
               {/* Order now */}
-              <button className="mb-10 w-full rounded-xl bg-primary px-8 py-4 text-[0.72rem] font-label font-bold uppercase tracking-[0.14em] text-on-primary shadow-lg transition-all hover:bg-primary-container hover:shadow-xl active:scale-[0.98] md:w-auto md:max-w-xs md:text-sm md:tracking-widest">
+              <a
+                className="mb-10 block w-full rounded-xl bg-primary px-8 py-4 text-center text-[0.72rem] font-label font-bold uppercase tracking-[0.14em] text-on-primary shadow-lg transition-all hover:bg-primary-container hover:shadow-xl active:scale-[0.98] md:w-auto md:max-w-xs md:text-sm md:tracking-widest"
+                href={getOrderWhatsAppLink(`Hi Lilac & Honey, I'd like to order ${item.title}.`)}
+                rel="noreferrer"
+                target="_blank"
+              >
                 Order Now
-              </button>
+              </a>
 
               {/* Divider */}
               <div className="mb-8 h-px w-full bg-primary/10" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { OFFERS_SECTION_ID, seasonalSpotlight } from "@/app/home-data";
+import { getOrderWhatsAppLink } from "@/lib/whatsapp";
 import { ResponsiveImage } from "./ResponsiveImage";
 
 /* Marquee text that scrolls infinitely */
@@ -119,7 +120,12 @@ export function EasterQuote() {
                       {item.description}
                     </p>
                     {/* CTA */}
-                    <button className="flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-[0.58rem] font-label font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-primary/10 md:text-[0.62rem]">
+                    <a
+                      className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-[0.58rem] font-label font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-primary/10 md:text-[0.62rem]"
+                      href={getOrderWhatsAppLink(`Hi Lilac & Honey, I'd like to ${item.primaryCta.toLowerCase()}.`)}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       {item.primaryCta}
                       <svg
                         aria-hidden="true"
@@ -135,7 +141,7 @@ export function EasterQuote() {
                           strokeWidth="2"
                         />
                       </svg>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

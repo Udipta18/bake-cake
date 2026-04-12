@@ -1,10 +1,19 @@
 "use client";
 
-import { type MouseEvent, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigationItems } from "@/app/home-data";
-import { CallIcon, CheckIcon, CloseIcon, CopyIcon, GmailIcon, MenuIcon, WhatsAppIcon } from "./icons";
+import { WHATSAPP_ORDER_PHONE, getOrderWhatsAppLink } from "@/lib/whatsapp";
+import {
+  CallIcon,
+  CheckIcon,
+  CloseIcon,
+  CopyIcon,
+  GmailIcon,
+  MenuIcon,
+  WhatsAppIcon,
+} from "./icons";
 
 type NavigationProps = {
   isDrawerOpen: boolean;
@@ -14,28 +23,41 @@ type NavigationProps = {
 export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
   const pathname = usePathname();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [copiedField, setCopiedField] = useState<"email" | "phone" | "whatsapp" | null>(null);
+  const [copiedField, setCopiedField] = useState<
+    "email" | "phone" | "whatsapp" | null
+  >(null);
+  const [isNavHidden, setIsNavHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const contactEmail = "hello@lilacandhoney.com";
   const contactPhoneDisplay = "+91 72995 05240";
-  const contactPhoneHref = "+917299505240";
-  const whatsappMessage = encodeURIComponent(
-    "Hi Lilac & Honey, I would like to place an order. Could you please share the available options?",
-  );
-  const whatsappLink = `https://wa.me/${contactPhoneHref.replace("+", "")}?text=${whatsappMessage}`;
+  const contactPhoneHref = `+${WHATSAPP_ORDER_PHONE}`;
+  const whatsappLink = getOrderWhatsAppLink();
+
+  /* Hide nav on scroll down, show on scroll up */
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > 80 && currentY > lastScrollY.current) {
+        setIsNavHidden(true);
+      } else {
+        setIsNavHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (pathname === "/") {
       event.preventDefault();
-      // the CSS scroll-behavior: smooth will handle the animation gracefully.
       window.scrollTo(0, 0);
     }
   };
 
   const openContactModal = () => {
     setIsContactModalOpen(true);
-    if (isDrawerOpen) {
-      onToggleDrawer();
-    }
+    if (isDrawerOpen) onToggleDrawer();
   };
 
   const closeContactModal = () => {
@@ -56,11 +78,6 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
     }
   };
 
-  const desktopLinkClass = (label: string) =>
-    label === "Offers"
-      ? "block rounded-full premium-btn px-5 py-2.5 text-sm font-label font-bold uppercase tracking-widest text-[#fcf7e6]"
-      : "block py-2 text-sm font-label font-bold uppercase tracking-widest text-primary transition-colors hover:text-primary-container";
-
   const mobileLinkClass = (label: string) =>
     label === "Offers"
       ? "block rounded-full premium-btn px-6 py-4 text-center text-xl font-headline font-bold tracking-wider text-[#fcf7e6]"
@@ -68,14 +85,21 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
 
   return (
     <>
+      {/* ── Drawer overlay ── */}
       <div
-        className={`fixed inset-0 z-[45] bg-black/20 transition-opacity duration-400 ${isDrawerOpen ? "pointer-events-auto opacity-100 backdrop-blur-[8px]" : "pointer-events-none opacity-0"
-          }`}
+        className={`fixed inset-0 z-[45] bg-black/20 transition-opacity duration-400 ${
+          isDrawerOpen
+            ? "pointer-events-auto opacity-100 backdrop-blur-[8px]"
+            : "pointer-events-none opacity-0"
+        }`}
         onClick={onToggleDrawer}
       />
+
+      {/* ── Mobile Drawer ── */}
       <aside
-        className={`fixed top-0 left-0 z-[60] flex h-full w-[82vw] max-w-80 flex-col border-r border-primary/10 bg-[#f1efd9] px-8 pt-24 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:px-10 md:pt-32 ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={`fixed top-0 left-0 z-[60] flex h-full w-[82vw] max-w-80 flex-col border-r border-primary/10 bg-[#f1efd9] px-8 pt-24 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:px-10 md:pt-32 ${
+          isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         <button
           aria-label="Close navigation menu"
@@ -102,7 +126,13 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
                 ) : (
                   <a
                     className={mobileLinkClass(item.label)}
-                    href={"href" in item ? item.href : ("anchorId" in item ? `/#${item.anchorId}` : "#")}
+                    href={
+                      "href" in item
+                        ? item.href
+                        : "anchorId" in item
+                          ? `/#${item.anchorId}`
+                          : "#"
+                    }
                     onClick={() => {
                       if (isDrawerOpen) onToggleDrawer();
                     }}
@@ -115,36 +145,63 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
           </ul>
         </div>
         <div className="mt-auto pb-12">
-          <p className="text-[0.65rem] leading-loose font-label font-bold uppercase tracking-widest text-primary/50">
+          <p className="text-[0.65rem] font-label font-bold uppercase leading-loose tracking-widest text-primary/50">
             Established 2024
             <br />
             Editorial Patisserie
           </p>
         </div>
       </aside>
-      <nav className="glass-nav fixed top-0 right-0 left-0 z-50 w-full border-b border-primary/5 shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8 md:py-6">
+
+      {/* ══════════════════════════════════════════════
+          ██  Floating Pill Navigation (Desktop)  ██
+          ══════════════════════════════════════════════ */}
+      <nav className={`fixed top-0 right-0 left-0 z-50 flex w-full justify-center px-3 pt-2.5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:px-6 md:pt-3 ${isNavHidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}>
+        <div className="relative flex w-full max-w-3xl items-center justify-between rounded-full border border-[#c79a35]/12 bg-[#f5f0dc]/90 px-5 py-2.5 shadow-[0_4px_20px_rgba(74,44,93,0.08)] backdrop-blur-xl md:px-7 md:py-3">
+
+          {/* Logo */}
           <Link
-            className="whitespace-nowrap font-headline text-xl font-bold italic tracking-tight text-primary drop-shadow-[0_0_8px_rgba(242,218,255,0.4)] md:text-3xl"
+            className="relative z-10 whitespace-nowrap font-headline text-lg font-bold italic tracking-tight text-primary drop-shadow-[0_0_8px_rgba(242,218,255,0.3)] md:text-xl"
             href="/"
             onClick={handleLogoClick}
           >
             Lilac & Honey
           </Link>
-          <div className="hidden items-center space-x-8 md:flex">
+
+          {/* Desktop links */}
+          <div className="relative z-10 hidden items-center gap-1 md:flex">
             {navigationItems.map((item) =>
               item.label === "Contact Us" ? (
                 <button
-                  className={desktopLinkClass(item.label)}
+                  className="rounded-full px-4 py-1.5 text-[0.68rem] font-label font-bold uppercase tracking-[0.15em] text-primary/70 transition-all hover:bg-primary/5 hover:text-primary"
                   key={item.label}
                   onClick={openContactModal}
                   type="button"
                 >
                   {item.label}
                 </button>
+              ) : item.label === "Offers" ? (
+                <a
+                  className="premium-btn ml-1 block rounded-full px-5 py-2 text-[0.68rem] font-label font-bold uppercase tracking-[0.15em] text-[#fcf7e6]"
+                  href={
+                    "anchorId" in item ? `/#${item.anchorId}` : "#"
+                  }
+                  key={item.label}
+                >
+                  {item.label}
+                </a>
               ) : item.items.length > 0 ? (
                 <div className="nav-dropdown" key={item.label}>
-                  <a className={desktopLinkClass(item.label)} href={"href" in item ? item.href : ("anchorId" in item ? `/#${item.anchorId}` : "#")}>
+                  <a
+                    className="rounded-full px-4 py-1.5 text-[0.68rem] font-label font-bold uppercase tracking-[0.15em] text-primary/70 transition-all hover:bg-primary/5 hover:text-primary"
+                    href={
+                      "href" in item
+                        ? item.href
+                        : "anchorId" in item
+                          ? `/#${item.anchorId}`
+                          : "#"
+                    }
+                  >
                     {item.label}
                   </a>
                   <div className="dropdown-menu">
@@ -157,8 +214,14 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
                 </div>
               ) : (
                 <a
-                  className={desktopLinkClass(item.label)}
-                  href={"href" in item ? item.href : ("anchorId" in item ? `/#${item.anchorId}` : "#")}
+                  className="rounded-full px-4 py-1.5 text-[0.68rem] font-label font-bold uppercase tracking-[0.15em] text-primary/70 transition-all hover:bg-primary/5 hover:text-primary"
+                  href={
+                    "href" in item
+                      ? item.href
+                      : "anchorId" in item
+                        ? `/#${item.anchorId}`
+                        : "#"
+                  }
                   key={item.label}
                 >
                   {item.label}
@@ -166,17 +229,21 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
               ),
             )}
           </div>
-          <div className="flex items-center md:hidden">
+
+          {/* Mobile hamburger */}
+          <div className="relative z-10 flex items-center md:hidden">
             <button
               aria-label="Open navigation menu"
-              className="flex min-h-10 min-w-10 cursor-pointer items-center justify-center text-primary transition-transform hover:scale-110"
+              className="flex min-h-9 min-w-9 cursor-pointer items-center justify-center rounded-full text-primary transition-all hover:bg-primary/5 hover:scale-110"
               onClick={onToggleDrawer}
             >
-              <MenuIcon className="h-7 w-7" />
+              <MenuIcon className="h-6 w-6" />
             </button>
           </div>
         </div>
       </nav>
+
+      {/* ── Contact Modal ── */}
       {isContactModalOpen ? (
         <div
           className="fixed inset-0 z-[75] flex items-center justify-center bg-black/40 px-4 backdrop-blur-md transition-opacity duration-500"
@@ -199,7 +266,7 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
               <CloseIcon className="h-5 w-5" />
             </button>
 
-            <div className="mb-8 mt-2 text-center relative z-10">
+            <div className="relative z-10 mt-2 mb-8 text-center">
               <span className="mb-4 inline-block text-[0.6rem] font-bold uppercase tracking-[0.25em] text-[#c79a35]">
                 Concierge & Support
               </span>
@@ -208,7 +275,7 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
               </h3>
             </div>
 
-            <div className="space-y-5 px-1 relative z-10">
+            <div className="relative z-10 space-y-5 px-1">
               {/* Email Row */}
               <div className="group flex items-center justify-between border-b border-primary/10 pb-4 transition-colors hover:border-[#c79a35]/40">
                 <div>
@@ -247,7 +314,9 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
                 <button
                   aria-label="Copy phone"
                   className="flex h-8 w-8 items-center justify-center rounded-full text-primary/40 transition-colors hover:bg-primary/5 hover:text-primary"
-                  onClick={() => copyContactDetail(contactPhoneDisplay, "phone")}
+                  onClick={() =>
+                    copyContactDetail(contactPhoneDisplay, "phone")
+                  }
                   title={copiedField === "phone" ? "Copied" : "Copy phone"}
                   type="button"
                 >
@@ -272,8 +341,12 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
                 <button
                   aria-label="Copy WhatsApp"
                   className="flex h-8 w-8 items-center justify-center rounded-full text-primary/40 transition-colors hover:bg-primary/5 hover:text-primary"
-                  onClick={() => copyContactDetail(contactPhoneDisplay, "whatsapp")}
-                  title={copiedField === "whatsapp" ? "Copied" : "Copy WhatsApp"}
+                  onClick={() =>
+                    copyContactDetail(contactPhoneDisplay, "whatsapp")
+                  }
+                  title={
+                    copiedField === "whatsapp" ? "Copied" : "Copy WhatsApp"
+                  }
                   type="button"
                 >
                   {copiedField === "whatsapp" ? (
@@ -285,9 +358,9 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 px-1 relative z-10">
+            <div className="relative z-10 mt-8 flex flex-col gap-3 px-1">
               <a
-                className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full premium-btn border-none px-6 py-3.5 text-[0.75rem] font-label font-bold uppercase tracking-[0.15em] text-[#fcf7e6] shadow-md"
+                className="premium-btn group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full border-none px-6 py-3.5 text-[0.75rem] font-label font-bold uppercase tracking-[0.15em] text-[#fcf7e6] shadow-md"
                 href={whatsappLink}
                 rel="noreferrer"
                 target="_blank"
@@ -296,17 +369,17 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
                 Message via WhatsApp
               </a>
               <a
-                className="group flex w-full items-center justify-center gap-3 rounded-full border border-[#c79a35]/40 bg-white/50 px-6 py-3.5 text-[0.75rem] font-label font-bold uppercase tracking-[0.15em] text-primary transition-all hover:bg-white hover:border-[#c79a35]/80 hover:shadow-sm"
+                className="group flex w-full items-center justify-center gap-3 rounded-full border border-[#c79a35]/40 bg-white/50 px-6 py-3.5 text-[0.75rem] font-label font-bold uppercase tracking-[0.15em] text-primary transition-all hover:border-[#c79a35]/80 hover:bg-white hover:shadow-sm"
                 href={`tel:${contactPhoneHref}`}
               >
                 <CallIcon className="h-4 w-4 text-[#c79a35]" />
                 Call Patisserie
               </a>
               <a
-                className="group flex w-full items-center justify-center gap-3 rounded-full bg-transparent px-6 py-3.5 text-[0.75rem] font-label font-bold uppercase tracking-[0.15em] text-primary/80 transition-all hover:text-primary hover:bg-primary/5"
+                className="group flex w-full items-center justify-center gap-3 rounded-full bg-transparent px-6 py-3.5 text-[0.75rem] font-label font-bold uppercase tracking-[0.15em] text-primary/80 transition-all hover:bg-primary/5 hover:text-primary"
                 href={`mailto:${contactEmail}`}
               >
-                <GmailIcon className="h-4 w-4 text-primary/50 group-hover:text-primary transition-colors" />
+                <GmailIcon className="h-4 w-4 text-primary/50 transition-colors group-hover:text-primary" />
                 Send an Email
               </a>
             </div>
