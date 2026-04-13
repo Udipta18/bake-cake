@@ -9,5 +9,5 @@ type ResponsiveImageProps = {
 };
 
 export function ResponsiveImage({ src, alt, className, sizes, priority = false }: ResponsiveImageProps) {
-  return <Image alt={alt} className={className} fill priority={priority} sizes={sizes} src={src} unoptimized />;
+  return <Image alt={alt} className={className} fill priority={priority} sizes={sizes} src={src} />;
 }

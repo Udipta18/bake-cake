@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${headlineFont.variable} ${bodyFont.variable} relative overflow-x-hidden bg-[#f1efd9] font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed`}
+        className={`${headlineFont.variable} ${bodyFont.variable} m-0 min-h-0 bg-[#f1efd9] font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed`}
       >
         {children}
       </body>

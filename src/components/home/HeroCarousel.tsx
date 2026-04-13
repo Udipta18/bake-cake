@@ -1,6 +1,7 @@
 "use client";
 
 import { heroSlides } from "@/app/home-data";
+import { getOrderWhatsAppLink } from "@/lib/whatsapp";
 import { ArrowLeftIcon, ArrowRightIcon } from "./icons";
 import { ResponsiveImage } from "./ResponsiveImage";
 
@@ -34,9 +35,14 @@ export function HeroCarousel({ currentSlide, onPrevious, onNext }: HeroCarouselP
                 {slide.title}
               </h1>
               <p className="mb-6 max-w-sm font-body text-base font-medium text-secondary md:mb-8 md:max-w-lg md:text-xl">{slide.description}</p>
-              <button className="rounded-xl bg-primary px-6 py-3 text-[0.72rem] font-label font-bold uppercase tracking-[0.14em] text-on-primary transition-colors hover:bg-primary-container md:px-10 md:py-4 md:text-sm md:tracking-widest">
+              <a
+                className="inline-block rounded-xl bg-primary px-6 py-3 text-[0.72rem] font-label font-bold uppercase tracking-[0.14em] text-on-primary transition-colors hover:bg-primary-container md:px-10 md:py-4 md:text-sm md:tracking-widest"
+                href={getOrderWhatsAppLink(`Hi Lilac & Honey, I would like to order from your ${slide.title} collection.`)}
+                rel="noreferrer"
+                target="_blank"
+              >
                 {slide.cta}
-              </button>
+              </a>
             </div>
           </div>
         </div>
