@@ -26,6 +26,7 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
   const [copiedField, setCopiedField] = useState<
     "email" | "phone" | "whatsapp" | null
   >(null);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
   const lastScrollY = useRef(0);
   const contactEmail = "hello@lilacandhoney.com";
@@ -78,77 +79,140 @@ export function Navigation({ isDrawerOpen, onToggleDrawer }: NavigationProps) {
     }
   };
 
-  const mobileLinkClass = (label: string) =>
-    label === "Offers"
-      ? "block rounded-full premium-btn px-6 py-4 text-center text-xl font-headline font-bold tracking-wider text-[#fcf7e6]"
-      : "block text-2xl font-headline font-bold text-primary transition-all hover:text-primary-container";
 
   return (
     <>
       {/* ── Drawer overlay ── */}
       <div
-        className={`fixed inset-0 z-[45] bg-black/20 transition-opacity duration-400 ${
+        className={`fixed inset-0 z-[45] bg-[#3a224a]/20 transition-opacity duration-400 ${
           isDrawerOpen
-            ? "pointer-events-auto opacity-100 backdrop-blur-[8px]"
+            ? "pointer-events-auto opacity-100 backdrop-blur-sm"
             : "pointer-events-none opacity-0"
         }`}
         onClick={onToggleDrawer}
       />
 
-      {/* ── Mobile Drawer ── */}
+      {/* ── Mobile Drawer (Small & Cozy) ── */}
       <aside
-        className={`fixed top-0 left-0 z-[60] flex h-full w-[82vw] max-w-80 flex-col border-r border-primary/10 bg-[#f1efd9] px-8 pt-24 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:px-10 md:pt-32 ${
+        className={`fixed top-0 left-0 z-[60] flex h-full w-[70vw] max-w-[260px] flex-col bg-[#f1efd9] shadow-xl transition-transform duration-400 ease-out ${
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <button
-          aria-label="Close navigation menu"
-          className="absolute top-6 right-6 text-primary transition-transform hover:scale-110 md:top-8 md:right-8"
-          onClick={onToggleDrawer}
-        >
-          <CloseIcon className="h-7 w-7" />
-        </button>
-        <div className="mb-12">
-          <span className="mb-4 block text-xs font-label font-bold uppercase tracking-[0.3em] text-primary/40">
-            Navigation
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 pt-8 pb-6">
+          <span className="font-headline text-lg font-bold italic text-primary">
+            Lilac & Honey
           </span>
-          <ul className="space-y-6">
-            {navigationItems.map((item) => (
-              <li key={item.label}>
-                {item.label === "Contact Us" ? (
-                  <button
-                    className={mobileLinkClass(item.label)}
-                    onClick={openContactModal}
-                    type="button"
-                  >
-                    {item.label}
-                  </button>
-                ) : (
-                  <a
-                    className={mobileLinkClass(item.label)}
-                    href={
-                      "href" in item
-                        ? item.href
-                        : "anchorId" in item
-                          ? `/#${item.anchorId}`
-                          : "#"
-                    }
-                    onClick={() => {
-                      if (isDrawerOpen) onToggleDrawer();
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
+          <button
+            aria-label="Close menu"
+            className="p-1"
+            onClick={onToggleDrawer}
+          >
+            <CloseIcon className="h-5 w-5 text-primary/60" />
+          </button>
         </div>
-        <div className="mt-auto pb-12">
-          <p className="text-[0.65rem] font-label font-bold uppercase leading-loose tracking-widest text-primary/50">
-            Established 2024
-            <br />
-            Editorial Patisserie
+
+        {/* Navigation list */}
+        <nav className="flex-1 overflow-y-auto px-6 pt-2">
+          <ul className="flex flex-col gap-5">
+            {navigationItems.map((item) => {
+              const href =
+                "href" in item
+                  ? item.href
+                  : "anchorId" in item
+                    ? `/#${item.anchorId}`
+                    : "#";
+              
+              const isOffers = item.label === "Offers";
+              const isProducts = item.label === "Products";
+              const hasSubItems = item.items && item.items.length > 0;
+
+              return (
+                <li key={item.label}>
+                  {isOffers ? (
+                    <a
+                      className="group relative inline-flex items-center overflow-hidden rounded-lg bg-gradient-to-r from-[#c79a35]/10 via-[#c79a35]/20 to-[#c79a35]/10 bg-[length:200%_auto] px-5 py-2.5 font-headline text-xl font-bold text-[#b58826] shadow-[inset_0_1px_rgba(255,255,255,0.4),0_2px_10px_rgba(199,154,53,0.15)] transition-all duration-700 hover:bg-[100%_auto] hover:shadow-[0_0_15px_rgba(199,154,53,0.3)]"
+                      href={href}
+                      onClick={() => {
+                        if (isDrawerOpen) onToggleDrawer();
+                      }}
+                    >
+                      {/* Floating glitters */}
+                      <span aria-hidden="true" className="absolute left-1 top-0.5 animate-[pulse_2s_ease-in-out_infinite] text-[0.65rem] text-[#e9c349]">✦</span>
+                      <span aria-hidden="true" className="absolute bottom-0.5 right-1 animate-[ping_3s_ease-in-out_infinite] text-[0.45rem] text-[#c79a35]">✦</span>
+                      <span aria-hidden="true" className="absolute left-1/2 top-[2px] animate-[pulse_1.5s_ease-in-out_infinite] text-[0.4rem] text-[#ffe4a0] [animation-delay:500ms]">✦</span>
+
+                      <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">{item.label}</span>
+                    </a>
+                  ) : isProducts && hasSubItems ? (
+                    /* Products dropdown */
+                    <div>
+                      <button
+                        className="flex w-full items-center justify-between px-2 font-headline text-xl font-semibold text-primary/80 transition-colors hover:text-primary"
+                        onClick={() => setIsProductsOpen(!isProductsOpen)}
+                        type="button"
+                      >
+                        {item.label}
+                        <svg
+                          aria-hidden="true"
+                          className={`h-4 w-4 text-primary/40 transition-transform duration-300 ${isProductsOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-out ${
+                          isProductsOpen ? "mt-2 max-h-48 opacity-100" : "max-h-0 opacity-0"
+                        }`}
+                      >
+                        <ul className="flex flex-col gap-2 pl-4">
+                          {item.items.map((sub) => (
+                            <li key={sub}>
+                              <span className="font-body text-[0.8rem] font-medium text-primary/50">
+                                {sub}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ) : item.label === "Contact Us" ? (
+                    <button
+                      className="px-2 font-headline text-xl font-semibold text-primary/80 transition-colors hover:text-primary"
+                      onClick={openContactModal}
+                      type="button"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <a
+                      className="block px-2 font-headline text-xl font-semibold text-primary/80 transition-colors hover:text-primary"
+                      href={href}
+                      onClick={() => {
+                        if (isDrawerOpen) onToggleDrawer();
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* Footer */}
+        <div className="px-6 pb-8 pt-4">
+          <div className="mb-4 h-px w-8 bg-primary/10" />
+          <p className="font-headline text-sm font-semibold italic text-primary/60">
+            Handcrafted with love
+          </p>
+          <p className="mt-1 font-label text-[0.6rem] font-bold uppercase tracking-[0.2em] text-primary/30">
+            Est. 2024 · Lilac & Honey
           </p>
         </div>
       </aside>
