@@ -63,15 +63,14 @@ export const galleryItems = [
     title: "Decadent Brownies",
     category: "Brownies",
     description: "Rich, fudgy layers of 70% dark cacao with a signature crackle top.",
-    price: "From $24.00",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBM6U5eib9AiGjIN9XSSzhAnhUtctM8rmP19B0rWqvY4JcBrk4G9iB2drgh7F3gS8q_tPHTr1QJoEZWRrghQxt0m3vLTw87DTAjjs977xsJKVkayIcKZev_NdwQUmfpzjJNGGMjTPlvBMKpdq8PS_klQsXfRfSJ27z7B4O8RCGjhDz0EZ2b-olABTsD5RNmCeDMYDpj4or98bs1kqkd_6ZlE8T0yl0cy1ktV75Bo8rShTVSFB3xua2sTSXUd-WoQi2chpXSqoVvBd8",
+    price: "From ₹85.00",
+    image:"/images/brownies_collection.png",
   },
   {
     title: "Artisanal Chocolates",
     category: "Chocolates",
     description: "Hand-painted bonbons infused with lavender honey and organic berries.",
-    price: "From $32.00",
+    price: "From ₹32.00",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDPGgrgli0mi_a7iuZr9PltF3QW8GIDjTTzRSPkjDCH_wxEk4nsi9YjWsTTjEUB3zYh0biUXDSb2Ej1KIa8hqGe4PWJMtJod7XN-9sraDUqMItPXnHnZzQ09zKBh-ZSZv1df8tJ5lzJ6jxVc2G-AHH7-XY-FOapGxwN7yu3WeU4pQOLv6rA9uLE8lowEx3mw2jrj0DNmi_Eq-V0HF-c4KHI_XBIQvgHO3i3qGzrIH489lfzjF5YFA0ThgmSTd0rPzAyHM5YejL9a7o",
   },
@@ -79,9 +78,9 @@ export const galleryItems = [
     title: "Warm & Soft Cookies",
     category: "Cookies",
     description: "Brown-butter infused dough baked to golden perfection with sea salt.",
-    price: "From $18.00",
+    price: "From ₹18.00",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCslIFtGQde5lmR8H4sMW2exDEHvrDwcQ2wnZtRd6Y419qOTilLP4xnaUUZXjTjtIWYeHFDRKmUOz051kDdBgctDGJ8QQiRi7RpT8aOZRkO6c61qJ_w6l4WD2fzFLcQTa_tNzf35R8kGk8S7mlJi7VC-il6RIBlMEs5zpzERRNK-YcqnmZoKFo5lub72YQTSuUZqIr9jPW_HfYmYedQBpg4XDxJUgtvlWJrAGUW7pbOvjC6DbJUinlgXWi0SKrSGkUByPXEn2nIfao",
+      "/images/combine_cookies.png",
   },
 ] as const;
 
@@ -124,19 +123,19 @@ export const seasonalSpotlight = [
 export const bestSellerItems = [
   {
     title: "Signature Cookies",
-    price: "$22.00",
+    price: "₹22.00",
     image:
       "https://lh3.googleusercontent.com/aida/ADBb0ujD-YbGS9L836xz5zbF8UFeIhswEa-v6O7Li9pTrX7DzLIRaG-qCj4ha-ttsf2zqjtCXK4w2sM00iy4cyI1QIDK88e7X5QTRJ3lsFMfn0VqOpNiOE_CcNyxXs6ScQdeV5NOtKEO8IB0L4Zs7bcoOiovSl34xpmF7tnoEqpG9yp6FrD9Ft599OuxiopjUg0tB_4l8ZQYOfwOdmHpm1AxWrAxsaWsk9QmL_nS_W9KrWim5UkSwxJ5LI-8nlkzrehsfigOV_1V1rfrJg",
   },
   {
     title: "Artisan Truffles",
-    price: "$36.00",
+    price: "₹36.00",
     image:
       "https://lh3.googleusercontent.com/aida/ADBb0ujIV-MbtXxkXfGglo5I4qePpOhOIJvV7xIKaNYdCQxsMY7-umJLdueErPFDwCuQGCK9bXElnCa_mBl5LkayhSVs_RaRBwWPktqz6E-7CUzVQrxg_M_gTcSBqG1Wd8cLTe-lCBcy6hVb7YVzY1UlM6dumxyZ0ZHQ1Cv0IuTur77aiNZkEu8U-iNO9nZt63erKxN73UznPGcaISoBJXo7zcZRyOCU3FKqtcUEbp6N_r2vBQ_gN6xvRLN5-6QVL9ywR-MP2Qig19N2",
   },
   {
     title: "Swirled Fudge Brownies",
-    price: "$28.00",
+    price: "₹28.00",
     image:
       "https://lh3.googleusercontent.com/aida/ADBb0ujpBavcVgsIIUxIS76jvI7ytsjQpTihG0JgaWF2xSVSlfkNoI-gaDt5XVHWJ3pB_hF6iEidY2JhmuySMEYd1BRooKEpdbQgp8nA3fiwD3G7bF7Fsty_8vXqPsfGAtrZ7KQMpIodGzjTM_qjNVUk1dYFwNx6vDTa_OIy7xtefI98d_sNPMoNjSvr0-E5VcREcv3EIFdgatfeQb7aJtPeLhQnD6qnQoKP0iYcD71c_FkOHcolsBL8bbfMhryPKENGSf-7Zw6awbc06Q",
   },
