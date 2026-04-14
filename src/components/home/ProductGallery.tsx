@@ -56,8 +56,7 @@ export function ProductGallery() {
             <div className="relative aspect-[4/5] md:aspect-auto md:h-full md:min-h-[540px]">
               <ResponsiveImage
                 alt={featured.title}
-                className="transition-transform duration-[900ms] ease-out group-hover:scale-105"
-                objectFit="contain"
+                className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
                 priority
                 sizes="(min-width: 768px) 58vw, 100vw"
                 src={featured.image}
