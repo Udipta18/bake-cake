@@ -181,6 +181,54 @@ export const collectionsData: CollectionItem[] = [
     category: "Cookies",
   },
   {
+    slug: "jeera-atta-cookie",
+    title: "Jeera Atta Cookie",
+    description:
+      "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
+    longDescription:
+      "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
+    price: "₹22.00",
+    priceNote: "Box of 6 cookies",
+    image:
+      "/images/jeera_atta_cookie.png",
+    ingredients: [
+      "Brown Sugar",
+      "White Chocolate",
+      "Macadamia Nuts",
+      "Molasses",
+      "French Butter",
+      "Organic Flour",
+    ],
+    servingSize: "6 cookies",
+    shelfLife: "Best within 3 days",
+    allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
+    category: "Cookies",
+  },
+  {
+    slug: "nutella-cookie",
+    title: "Nutella Cookie",
+    description:
+      "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
+    longDescription:
+      "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
+    price: "₹22.00",
+    priceNote: "Box of 6 cookies",
+    image:
+      "/images/nutella_cookie.png",
+    ingredients: [
+      "Brown Sugar",
+      "White Chocolate",
+      "Macadamia Nuts",
+      "Molasses",
+      "French Butter",
+      "Organic Flour",
+    ],
+    servingSize: "6 cookies",
+    shelfLife: "Best within 3 days",
+    allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
+    category: "Cookies",
+  },
+  {
     slug: "artisan-truffles",
     title: "Artisan Truffles",
     description:
