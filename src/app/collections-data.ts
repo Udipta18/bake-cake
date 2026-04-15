@@ -20,7 +20,7 @@ export const collectionsData: CollectionItem[] = [
     description:
       "Rich, fudgy layers of 70% dark cacao with a signature walnut crackle top.",
     longDescription:
-      "Indulge in our walnut brownies — a symphony of 70% single-origin dark cacao, slow-melted Belgian butter, and a whisper of Tahitian vanilla. Each brownie is baked low and slow until the interior turns impossibly fudgy while the top develops our iconic crackle crust. Finished with a dusting of Valrhona cocoa and a delicate flake of Maldon sea salt.",
+      "Indulge in our walnut brownies — a symphony of 70% single-origin dark cacao, slow-melted Premium quality butter, and a whisper of Regular vanilla. Each brownie is baked low and slow until the interior turns impossibly fudgy while the top develops our iconic crackle crust. Finished with a dusting of Valrhona cocoa and a delicate flake of sea salt.",
     price: "From ₹82.00",
     priceNote: "Box of 6 pieces",
     image:"/images/walnut.png",
