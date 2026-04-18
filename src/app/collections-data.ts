@@ -15,39 +15,232 @@ export type CollectionItem = {
 
 export const collectionsData: CollectionItem[] = [
   {
-    slug: "walnut-brownies",
-    title: "Walnut Brownies",
+    slug: "ferrero-rocher-chocolates",
+    title: "Ferrero Rocher Chocolates",
     description:
-      "Rich, fudgy layers of 70% dark cacao with a signature walnut crackle top.",
+      "Classic Ferrero Rocher chocolates with a crispy hazelnut filling.",
     longDescription:
-      "Indulge in our walnut brownies — a symphony of 70% single-origin dark cacao, slow-melted Belgian butter, and a whisper of Tahitian vanilla. Each brownie is baked low and slow until the interior turns impossibly fudgy while the top develops our iconic crackle crust. Finished with a dusting of Valrhona cocoa and a delicate flake of Maldon sea salt.",
-    price: "From ₹82.00",
-    priceNote: "Box of 6 pieces",
-    image:"/images/walnut.png",
+      "Our Ferrero Rocher collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹70.00",
+    priceNote: "Price per piece",
+    image:
+      "/images/ferror_1.png",
     ingredients: [
-      "70% Dark Cacao",
-      "Belgian Butter",
-      "Free-Range Eggs",
-      "Tahitian Vanilla",
-      "Maldon Sea Salt",
-      "Valrhona Cocoa Powder",
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
     ],
-    servingSize: "Serves 6–8",
-    shelfLife: "Best within 5 days",
-    allergens: ["Dairy", "Eggs", "Gluten"],
-    category: "Brownies",
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
   },
   {
-    slug: "artisanal-chocolates",
-    title: "Artisanal Chocolates",
+    slug: "caramel-bonbon-chocolates",
+    title: "Caramel Bonbon Chocolates",
     description:
-      "Hand-painted bonbons infused with lavender honey and organic berries.",
+      "Classic Caramel Bonbon chocolates with a crispy hazelnut filling.",
     longDescription:
-      "Our artisanal chocolate collection is a testament to the art of confection. Each bonbon is hand-painted with natural cocoa butter colours, then filled with ganaches infused with French lavender honey, Amalfi lemon, and organic berry reductions. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
-    price: "From $32.00",
-    priceNote: "Box of 9 pieces",
+      "Our Ferrero Rocher collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹70.00",
+    priceNote: "Price per piece",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDPGgrgli0mi_a7iuZr9PltF3QW8GIDjTTzRSPkjDCH_wxEk4nsi9YjWsTTjEUB3zYh0biUXDSb2Ej1KIa8hqGe4PWJMtJod7XN-9sraDUqMItPXnHnZzQ09zKBh-ZSZv1df8tJ5lzJ6jxVc2G-AHH7-XY-FOapGxwN7yu3WeU4pQOLv6rA9uLE8lowEx3mw2jrj0DNmi_Eq-V0HF-c4KHI_XBIQvgHO3i3qGzrIH489lfzjF5YFA0ThgmSTd0rPzAyHM5YejL9a7o",
+      "/images/caramel_bobon.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "snickers-chocolates",
+    title: "Snickers Chocolates",
+    description:
+      "Classic Snickers chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Ferrero Rocher collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹80.00",
+    priceNote: "Price per piece",
+    image:
+      "/images/snickers.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "rasmalai-chocolates",
+    title: "Rasmalai Chocolates",
+    description:
+      "Classic rasmalai chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic rasmalai chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹80.00(L) ₹50.00(S)",
+    priceNote: "Price per piece",
+    image:
+      "/images/rasmalai.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "white-dark-chocolates",
+    title: "Milk Dark Chocolate Bar",
+    description:
+      "Classic milky chocolaty chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic milky chocolaty chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹80.00(L) ₹50.00(S)",
+    priceNote: "Price per piece",
+    image:
+      "/images/white_dark.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "cookie-cream-chocolates",
+    title: "Cookie&Cream Chocolate Bar",
+    description:
+      "Classic cookie and cream chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic cookie and cream chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹90.00",
+    priceNote: "Price per piece",
+    image:
+      "/images/cookie.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "wafer-chocolates",
+    title: "Wafer Chocolate",
+    description:
+      "Classic wafer chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic wafer chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹50.00",
+    priceNote: "Price per piece",
+    image:
+      "/images/wafer.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "kunafa-chocolates",
+    title: "Kunafa Chocolate",
+    description:
+      "Classic kunafa chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic kunafa chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹200.00(L)",
+    priceNote: "Price per piece",
+    image:
+      "/images/kunafa.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "hazelnut-chocolates",
+    title: "Hazelnut Chocolate Bar",
+    description:
+      "Classic hazelnut chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic hazelnut chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹120.00",
+    priceNote: "Price per piece",
+    image:
+      "/images/hazelnut.png",
+    ingredients: [
+      "Single-Origin Cacao",
+      "French Lavender Honey",
+      "Organic Berry Reduction",
+      "Amalfi Lemon Zest",
+      "Cocoa Butter",
+      "Pure Cream",
+    ],
+    servingSize: "9 bonbons",
+    shelfLife: "Best within 10 days",
+    allergens: ["Dairy", "Soy"],
+    category: "Chocolates",
+  },
+  {
+    slug: "nutty-chocolates",
+    title: "Nutty Chocolate Bar",
+    description:
+      "Classic nutty chocolates with a crispy hazelnut filling.",
+    longDescription:
+      "Our Classic nutty chocolates collection is a celebration of the iconic Italian chocolate. Each piece is enveloped in a layer of milk chocolate, revealing a crunchy hazelnut filling. The shells are tempered to a satisfying snap, revealing silky centres that melt on the tongue like velvet.",
+    price: "₹100.00",
+    priceNote: "Price per piece",
+    image:
+      "/images/nutty.png",
     ingredients: [
       "Single-Origin Cacao",
       "French Lavender Honey",
@@ -68,7 +261,7 @@ export const collectionsData: CollectionItem[] = [
       "Brown-butter infused dough baked to golden perfection with sea salt.",
     longDescription:
       "Our cookies begin with French butter, browned until nutty and fragrant, then folded into a dough that rests for 36 hours to develop deep, complex flavours. Studded with hand-chopped 65% dark chocolate and a sprinkle of fleur de sel, each cookie is baked until the edges turn golden while the centre stays delightfully gooey. Served warm from the oven.",
-    price: "From ₹18.00",
+    price: "₹230.00",
     priceNote: "Box of 8 cookies",
     image:"/images/chocochips_cookie.png",
     ingredients: [
@@ -91,8 +284,8 @@ export const collectionsData: CollectionItem[] = [
       "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
       "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
-    price: "₹22.00",
-    priceNote: "Box of 6 cookies",
+    price: "₹200.00",
+    priceNote: "Box of 8 cookies",
     image:
       "/images/nankhatai.png",
     ingredients: [
@@ -103,7 +296,7 @@ export const collectionsData: CollectionItem[] = [
       "French Butter",
       "Organic Flour",
     ],
-    servingSize: "6 cookies",
+    servingSize: "8 cookies",
     shelfLife: "Best within 3 days",
     allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
     category: "Cookies",
@@ -115,8 +308,8 @@ export const collectionsData: CollectionItem[] = [
       "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
       "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
-    price: "₹22.00",
-    priceNote: "Box of 6 cookies",
+    price: "₹250.00",
+    priceNote: "Box of 8 cookies",
     image:
       "/images/oats_atta_cookie.png",
     ingredients: [
@@ -139,8 +332,8 @@ export const collectionsData: CollectionItem[] = [
       "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
       "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
-    price: "₹22.00",
-    priceNote: "Box of 6 cookies",
+    price: "₹230.00",
+    priceNote: "Box of 8 cookies",
     image:
       "/images/chocolate_cookie.png",
     ingredients: [
@@ -163,8 +356,8 @@ export const collectionsData: CollectionItem[] = [
       "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
       "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
-    price: "₹22.00",
-    priceNote: "Box of 6 cookies",
+    price: "₹220.00",
+    priceNote: "Box of 8 cookies",
     image:
       "/images/coconut_cookie.png",
     ingredients: [
@@ -175,20 +368,20 @@ export const collectionsData: CollectionItem[] = [
       "French Butter",
       "Organic Flour",
     ],
-    servingSize: "6 cookies",
+    servingSize: "8 cookies",
     shelfLife: "Best within 3 days",
     allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
     category: "Cookies",
   },
   {
     slug: "jeera-atta-cookie",
-    title: "Jeera Atta Cookie",
+    title: "Jeera Atta Ajwain Cookie",
     description:
       "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
       "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
-    price: "₹22.00",
-    priceNote: "Box of 6 cookies",
+    price: "₹200.00",
+    priceNote: "Box of 8 cookies",
     image:
       "/images/jeera_atta_cookie.png",
     ingredients: [
@@ -199,7 +392,7 @@ export const collectionsData: CollectionItem[] = [
       "French Butter",
       "Organic Flour",
     ],
-    servingSize: "6 cookies",
+    servingSize: "8 cookies",
     shelfLife: "Best within 3 days",
     allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
     category: "Cookies",
@@ -211,8 +404,8 @@ export const collectionsData: CollectionItem[] = [
       "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
       "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
-    price: "₹22.00",
-    priceNote: "Box of 6 cookies",
+    price: "₹230.00",
+    priceNote: "Box of 8 cookies",
     image:
       "/images/nutella_cookie.png",
     ingredients: [
@@ -229,28 +422,52 @@ export const collectionsData: CollectionItem[] = [
     category: "Cookies",
   },
   {
-    slug: "artisan-truffles",
-    title: "Artisan Truffles",
+    slug: "kashmir-roth-cookie",
+    title: "Kashmir Roth Cookie",
     description:
-      "Velvety ganache centres dusted in premium cocoa, finished with a gilded touch.",
+      "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
     longDescription:
-      "Each truffle begins as a pool of 72% dark chocolate ganache, infused with either single-origin espresso, passion fruit, or Champagne. Gently rolled by hand and finished with a dusting of Dutch-process cocoa or edible gold leaf, these truffles offer a moment of pure, unadulterated luxury. Our truffles are never moulded — always hand-rolled for an artisanal texture.",
-    price: "$36.00",
-    priceNote: "Box of 12 truffles",
+      "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
+    price: "₹250.00",
+    priceNote: "Box of 8 cookies",
     image:
-      "https://lh3.googleusercontent.com/aida/ADBb0ujIV-MbtXxkXfGglo5I4qePpOhOIJvV7xIKaNYdCQxsMY7-umJLdueErPFDwCuQGCK9bXElnCa_mBl5LkayhSVs_RaRBwWPktqz6E-7CUzVQrxg_M_gTcSBqG1Wd8cLTe-lCBcy6hVb7YVzY1UlM6dumxyZ0ZHQ1Cv0IuTur77aiNZkEu8U-iNO9nZt63erKxN73UznPGcaISoBJXo7zcZRyOCU3FKqtcUEbp6N_r2vBQ_gN6xvRLN5-6QVL9ywR-MP2Qig19N2",
+      "/images/kashmir_roth.png",
     ingredients: [
-      "72% Dark Chocolate",
-      "Heavy Cream",
-      "Espresso / Passion Fruit / Champagne",
-      "Dutch Cocoa Powder",
-      "Edible Gold Leaf",
-      "Fleur de Sel",
+      "Brown Sugar",
+      "White Chocolate",
+      "Macadamia Nuts",
+      "Molasses",
+      "French Butter",
+      "Organic Flour",
     ],
-    servingSize: "12 truffles",
-    shelfLife: "Best within 7 days",
-    allergens: ["Dairy", "Soy"],
-    category: "Chocolates",
+    servingSize: "6 cookies",
+    shelfLife: "Best within 3 days",
+    allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
+    category: "Cookies",
+  },
+  {
+    slug: "karachi-cookie",
+    title: "Karachi Cookie",
+    description:
+      "Our bestselling recipe — a caramelised edge, chewy centre, and chunks of white chocolate macadamia.",
+    longDescription:
+      "The cookie that started it all. Our Signature Cookie features a dough enriched with brown sugar and a touch of molasses, creating a caramelised exterior that gives way to an impossibly chewy centre. Generously studded with premium white chocolate chips and toasted macadamia nuts, each cookie is a celebration of contrasting textures and balanced sweetness.",
+    price: "₹230.00",
+    priceNote: "Box of 8 cookies",
+    image:
+      "/images/nutella_cookie.png",
+    ingredients: [
+      "Brown Sugar",
+      "White Chocolate",
+      "Macadamia Nuts",
+      "Molasses",
+      "French Butter",
+      "Organic Flour",
+    ],
+    servingSize: "8 cookies",
+    shelfLife: "Best within 3 days",
+    allergens: ["Dairy", "Eggs", "Gluten", "Tree Nuts"],
+    category: "Cookies",
   },
   {
     slug: "almond-brownies",
@@ -259,8 +476,8 @@ export const collectionsData: CollectionItem[] = [
       "Layers of dark and white chocolate fudge swirled into a marbled masterpiece.",
     longDescription:
       "A decadent twist on our classic brownie, featuring ribbons of ivory white chocolate fudge swirled through our signature dark chocolate base. The contrast creates a striking marble pattern on top, while inside the two flavours meld into a harmonious, ultra-fudgy texture. Topped with caramelised white chocolate shards and a light sprinkle of edible flowers.",
-    price: "₹85.00",
-    priceNote: "Box of 6 pieces",
+    price: "₹90.00",
+    priceNote: "Per piece",
     image:"/images/almonds.png",
     ingredients: [
       "Dark Chocolate",
@@ -282,8 +499,8 @@ export const collectionsData: CollectionItem[] = [
       "Layers of dark and white chocolate fudge swirled into a marbled masterpiece.",
     longDescription:
       "A decadent twist on our classic brownie, featuring ribbons of ivory white chocolate fudge swirled through our signature dark chocolate base. The contrast creates a striking marble pattern on top, while inside the two flavours meld into a harmonious, ultra-fudgy texture. Topped with caramelised white chocolate shards and a light sprinkle of edible flowers.",
-    price: "₹85.00",
-    priceNote: "Box of 6 pieces",
+    price: "₹90.00",
+    priceNote: "Per piece",
     image:"/images/cashew.png",
     ingredients: [
       "Dark Chocolate",
@@ -305,8 +522,8 @@ export const collectionsData: CollectionItem[] = [
       "Layers of dark and white chocolate fudge swirled into a marbled masterpiece.",
     longDescription:
       "A decadent twist on our classic brownie, featuring ribbons of ivory white chocolate fudge swirled through our signature dark chocolate base. The contrast creates a striking marble pattern on top, while inside the two flavours meld into a harmonious, ultra-fudgy texture. Topped with caramelised white chocolate shards and a light sprinkle of edible flowers.",
-    price: "₹75.00",
-    priceNote: "Box of 6 pieces",
+    price: "₹90.00",
+    priceNote: "Per piece",
     image:"/images/chocochip.png",
     ingredients: [
       "Dark Chocolate",
@@ -320,5 +537,51 @@ export const collectionsData: CollectionItem[] = [
     shelfLife: "Best within 5 days",
     allergens: ["Dairy", "Eggs", "Gluten", "Soy"],
     category: "Brownies",
-  }
+  },
+  {
+    slug: "walnut-brownies",
+    title: "Walnut Brownies",
+    description:
+      "Rich, fudgy layers of 70% dark cacao with a signature walnut crackle top.",
+    longDescription:
+      "Indulge in our walnut brownies — a symphony of 70% single-origin dark cacao, slow-melted Premium quality butter, and a whisper of Regular vanilla. Each brownie is baked low and slow until the interior turns impossibly fudgy while the top develops our iconic crackle crust. Finished with a dusting of Valrhona cocoa and a delicate flake of sea salt.",
+    price: "₹90.00",
+    priceNote: "Per piece",
+    image:"/images/walnut.png",
+    ingredients: [
+      "70% Dark Cacao",
+      "Belgian Butter",
+      "Free-Range Eggs",
+      "Tahitian Vanilla",
+      "Maldon Sea Salt",
+      "Valrhona Cocoa Powder",
+    ],
+    servingSize: "Serves 6–8",
+    shelfLife: "Best within 5 days",
+    allergens: ["Dairy", "Eggs", "Gluten"],
+    category: "Brownies",
+  },
+  {
+    slug: "choco-pie-cake",
+    title: "Choco Pie Cake",
+    description:
+      "Rich, fudgy layers of 70% dark cacao with a signature Chocolate crackle top.",
+    longDescription:
+      "Indulge in our choco pie cakes — a symphony of 70% single-origin dark cacao, slow-melted Premium quality butter, and a whisper of Regular vanilla. Each brownie is baked low and slow until the interior turns impossibly fudgy while the top develops our iconic crackle crust. Finished with a dusting of Valrhona cocoa and a delicate flake of sea salt.",
+    price: "₹30.00",
+    priceNote: "Per piece",
+    image:"/images/choco_pie_cake.png",
+    ingredients: [
+      "70% Dark Cacao",
+      "Belgian Butter",
+      "Free-Range Eggs",
+      "Tahitian Vanilla",
+      "Maldon Sea Salt",
+      "Valrhona Cocoa Powder",
+    ],
+    servingSize: "Serves 6–8",
+    shelfLife: "Best within 5 days",
+    allergens: ["Dairy", "Eggs", "Gluten"],
+    category: "Brownies",
+  },
 ];
