@@ -45,7 +45,7 @@ export const heroSlides = [
       "Experience the artisanal alchemy of our signature brownies, crafted for life's sweetest celebrations.",
     cta: "Explore Collection",
     image:
-      "https://lh3.googleusercontent.com/aida/ADBb0uhyh3vmVxkEpESFOFYfpU_g3ldCW6_uG2RClWqtjRBu7ECbqF1Qj0urfO4kqNknDAY9eklRT1eCC45ktJmva8P_gBzVVjtHuGCSG843gvR49DMHXngFp0SnNlY39VBEjUhTEcGPZA-uLQ-Vwz_OIDO1lgcmyZDhA4K0USHtOgVQBMJAoRFEeKsbLpG8MfZPvp4Rx2q7EYKIsH01ALwmvBchfENeVfhzUZGpTbxscEeX3--aEsZAYhuIiqdFSEbSBPtwCEJFeOCS",
+      "/images/brownies_collection.png",
   },
   {
     eyebrow: "Gourmet Selection",
@@ -54,7 +54,7 @@ export const heroSlides = [
       "Discover our hand-painted pralines and truffles, where art meets the finest cacao.",
     cta: "Shop Chocolates",
     image:
-      "https://lh3.googleusercontent.com/aida/ADBb0ui0yPOZIendXKg0yr2BYUyBXW3MbCLVhb5Yx-toP4VcrzR-rnux276PoOLRdJvpEHeH7YcnwE7ES7mjCP7oMp8qWDZvSn2LxansWHinPKNPYqT6KckTxkOCWa6GCrPTpurhAfd9RkLo92LAdBt_CVOd9WbPPH5MHp9c3gnZpd4bHuha_lR15ckRfqLNz7j2KbLIjbjUduNh13pMPLYPQQ2Ij6m5ARx1ye29xx7m884XlYKfKu2CMgqNDeFtUPkUfd19Q-qh1wCtag",
+      "/images/gourmet.png",
   },
 ] as const;
 
